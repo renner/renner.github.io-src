@@ -1,0 +1,22 @@
+{{ define "head_resources" }}
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+{{ end }}
+
+{{ define "section_content" }}
+<article role="article" class="flex-container">
+    {{ .Content }}
+</article>
+
+<div class="grid">
+    {{ $dataGallery := getJSON "https://www.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=" .Params.apiKey "&photoset_id=" .Params.photosetId "&user_id=" .Params.userId "&extras=url_z,url_h&format=json&nojsoncallback=1" }}
+    {{ range $dataGallery.photoset.photo }}
+    <div>
+        <a href="{{ .url_h }}" title="{{ .title }}" data-fancybox="{{ $dataGallery.photoset.id }}">
+            <img src="{{ .url_z }}" alt="{{ .title }}" />
+        </a>
+    </div>
+    {{ end }}
+</div>
+{{ end }}
