@@ -34,9 +34,11 @@ jobs:
             ${{ runner.os }}-node-
 
       - run: npm ci
-      - run: hugo --minify
+      - run: hugo --minify --ignoreCache
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.PERSONAL_TOKEN }}
+          external_repository: renner/renner.github.io
+          publish_branch: master
