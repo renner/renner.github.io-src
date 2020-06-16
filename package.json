@@ -1,0 +1,24 @@
+{
+  "name": "renner.github.io",
+  "version": "1.0.0",
+  "description": "Personal website created with Hugo",
+  "main": "index.html",
+  "dependencies": {
+    "autoprefixer": "^9.8.0",
+    "postcss-cli": "^7.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/renner/renner.github.io-src.git"
+  },
+  "author": "Johannes Renner",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/renner/renner.github.io-src/issues"
+  },
+  "homepage": "https://github.com/renner/renner.github.io-src#readme"
+}
