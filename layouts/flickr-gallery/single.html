@@ -22,7 +22,7 @@
 </article>
 
 <div class="grid">
-    {{ $dataGallery := getJSON "https://www.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=" .Params.apiKey "&photoset_id=" .Params.photosetId "&user_id=" .Params.userId "&extras=url_z,url_h&format=json&nojsoncallback=1" }}
+    {{ $dataGallery := getJSON "https://www.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=" .Site.Params.Flickr.apiKey "&photoset_id=" .Params.photosetId "&user_id=" .Site.Params.Flickr.userId "&extras=url_z,url_h&format=json&nojsoncallback=1" }}
     {{ range $dataGallery.photoset.photo }}
     <div>
         <a href="{{ .url_h }}" title="{{ .title }}" data-fancybox="{{ $dataGallery.photoset.id }}" data-options='{"caption": "{{ .title }}"}'>
