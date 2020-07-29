@@ -7,4 +7,5 @@ This is some selected photography in several albums:
 
 - [Climbing](climbing)
 - [Clouds](clouds)
+- [Landscapes](landscapes)
 - [Streets](streets)
