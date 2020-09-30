@@ -5,4 +5,4 @@ url: "/photography/streets"
 photosetId: "72157714758040313"
 ---
 
-This album contains street photography from around the world, pictures showing houses, streets or other urban things.
+This album contains a small selection of my street photography from around the world.
