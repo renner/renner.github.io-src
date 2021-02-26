@@ -13,7 +13,7 @@ pygmentsCodefences       = true
     dateformfull         = "Mon Jan 2 2006 15:04:05 EST"
     # favicon              = "sam.ico"
     homepage             = "main"                           # What to call the home page link
-    footerText           = "&copy; 2020 Johannes Renner, based on [the sam theme](https://github.com/victoriadrake/hugo-theme-sam) for [Hugo](https://gohugo.io)."
+    footerText           = "&copy; 2020-2021 Johannes Renner, based on [the sam theme](https://github.com/victoriadrake/hugo-theme-sam) for [Hugo](https://gohugo.io)."
     customCSS            = ["/css/custom.css"]
 
 # Metadata for Open Graph and Twitter
