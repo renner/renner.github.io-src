@@ -1,19 +1,8 @@
 {{ define "head_resources" }}
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
-<script>
-  $(function() {
-    $('[data-fancybox="{{ .Params.photosetId }}"]').fancybox({
-      buttons: [
-        "zoom",
-        "slideShow",
-        "fullScreen",
-        "close"
-      ]
-    });
-  });
-</script>
+    {{ $photoswipe := "css/photoswipe.css" }}
+    <link rel="stylesheet" href="{{ $photoswipe | absURL }}">
+    {{ $defaultSkin := "css/default-skin.css" }}
+    <link rel="stylesheet" href="{{ $defaultSkin | absURL }}">
 {{ end }}
 
 {{ define "section_content" }}
@@ -21,14 +10,107 @@
     {{ .Content }}
 </article>
 
-<div class="grid">
+{{ $keepAspectRatio := default false .Params.keepAspectRatio }}
+{{ if .Params.clickablePhotos }}
+    <div class="grid {{ cond $keepAspectRatio "keep-aspect-ratio" "" }}">
     {{ $dataGallery := getJSON "https://www.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=" .Site.Params.Flickr.apiKey "&photoset_id=" .Params.photosetId "&user_id=" .Site.Params.Flickr.userId "&extras=url_z,url_h&format=json&nojsoncallback=1" }}
-    {{ range $dataGallery.photoset.photo }}
-    <div>
-        <a href="{{ .url_h }}" title="{{ .title }}" data-fancybox="{{ $dataGallery.photoset.id }}" data-options='{"caption": "{{ .title }}"}'>
-            <img src="{{ .url_z }}" alt="{{ .title }}" />
-        </a>
-    </div>
+    {{ range $index, $element := $dataGallery.photoset.photo }}
+        <div>
+            <a href="{{ $element.url_h }}" title="{{ $element.title }}" data-size="{{ $element.width_h }}x{{ $element.height_h }}">
+                <img src="{{ $element.url_z }}" alt="{{ $element.title }}" data-index="{{ $index }}"/>
+            </a>
+        </div>
     {{ end }}
+    </div>
+{{ else }}
+    <div class="grid {{ cond $keepAspectRatio "keep-aspect-ratio" "" }}">
+    {{ $dataGallery := getJSON "https://www.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=" .Site.Params.Flickr.apiKey "&photoset_id=" .Params.photosetId "&user_id=" .Site.Params.Flickr.userId "&extras=url_h&format=json&nojsoncallback=1" }}
+    {{ range $element := $dataGallery.photoset.photo }}
+        <div>
+            <img src="{{ $element.url_h }}" alt="{{ $element.title }}" />
+        </div>
+    {{ end }}
+    </div>
+{{ end }}
+
+{{ if .Params.clickablePhotos }}
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides.
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
 </div>
+
+    <!-- PhotoSwipe -->
+    {{ $photoswipe := "js/photoswipe.min.js"}}
+    <script src="{{ $photoswipe | absURL }}"></script>
+    {{ $photoswipeUI := "js/photoswipe-ui-default.min.js"}}
+    <script src="{{ $photoswipeUI | absURL }}"></script>
+
+    <!-- Gallery Script -->
+    {{ $script := resources.Get "js/gallery.js" | minify}}
+    <script src="{{ $script.Permalink }}"></script>
+{{ end }}
+
 {{ end }}
