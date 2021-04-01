@@ -7,4 +7,4 @@ clickablePhotos: true
 keepAspectRatio: false
 ---
 
-This gallery contains pictures of people climbing and bouldering. The featured places are Frankenjura, Ticino, Silvretta, Allgäu and others. Enjoy!
+Pictures of people rock climbing and bouldering. The featured places are Frankenjura, Ticino, Silvretta, Allgäu, Pfalz and others. Enjoy it here or view [this album on flickr](https://www.flickr.com/photos/139561037@N05/albums/72157714505994352).
