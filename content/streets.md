@@ -7,4 +7,4 @@ clickablePhotos: true
 keepAspectRatio: false
 ---
 
-This album contains a small selection of my street photography from around the world.
+Observations of urban scenery. See [this album on flickr](https://www.flickr.com/photos/139561037@N05/albums/72157714758040313).
