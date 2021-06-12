@@ -7,4 +7,4 @@ clickablePhotos: true
 keepAspectRatio: false
 ---
 
-This album features landscapes as seen in different corners of the world.
+Pictures of scenery showing mostly nature, see [this album on flickr](https://flickr.com).
