@@ -4,8 +4,8 @@
   "description": "Personal website created with Hugo",
   "main": "index.html",
   "dependencies": {
-    "autoprefixer": "^9.8.0",
-    "postcss-cli": "^7.1.1"
+    "autoprefixer": "^10.3.1",
+    "postcss-cli": "^8.3.1"
   },
   "devDependencies": {},
   "scripts": {
