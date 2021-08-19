@@ -9,3 +9,4 @@ This is some selected photography in several albums:
 - [Clouds](clouds)
 - [Landscapes](landscapes)
 - [Streets](streets)
+- [Surfing](surfing)
