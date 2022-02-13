@@ -30,8 +30,9 @@ pygmentsCodefences       = true
     link = "photography"
     text = "photography"
 
-# [imaging]
-#    quality = 75
+[[params.mainMenu]]
+    link = "projects"
+    text = "projects"
 
 [params.flickr]
     userId = ""
