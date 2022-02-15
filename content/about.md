@@ -3,7 +3,7 @@ title: "About Me"
 date: 2020-06-14
 ---
 
-Hello, my name is Johannes. I created this page as a personal portfolio to showcase some of my [photography](/photography) and [projects](/references).
+Hello, my name is Johannes. I created this page as a personal portfolio to showcase some of my [photography](/photography) and [projects](/projects).
 
 Creative expression is an important part of me, with my photography I like to capture aesthetics of scenarios surrounding me in a non-arranged way. My favorite genres are photojournalism, documentary and street photography. I am a passionate person in general, active in outdoor sports like rock climbing and surfing, knowledgeable and curious about technology, programming and engineering of open source software.
 
