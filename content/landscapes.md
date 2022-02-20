@@ -7,4 +7,4 @@ clickablePhotos: true
 keepAspectRatio: false
 ---
 
-Pictures of scenery showing mostly nature, see [this album on flickr](https://flickr.com).
+Pictures of natural scenery from around the world, see [this album on flickr](https://flickr.com).
