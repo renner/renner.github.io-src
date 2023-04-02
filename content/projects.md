@@ -9,6 +9,7 @@ These are references to publicly available online publications involving my work
 - Sept. 2021: [Nathaniel B. Cippele / Cool Beans Coffee Stop](https://en.kekoa.life/nathaniel-cippele) (photos and translation)
 - Nov. 2021: [Melissa Benedict / That Gather Girl](https://en.kekoa.life/melissa-benedict) (photos and translation)
 
-I worked on photo editing and English translation for the following article:
+I worked on photo editing and translation (German to English) for the following articles:
 
 - Feb. 2022: [Marcelle Versteeg / Mural Artist](https://en.kekoa.life/marcelle-versteeg) (photo editing and translation)
+- Dez. 2022: [Janina Lenzin / Be Yin](https://en.kekoa.life/janinalenzin) (photo editing and translation)
